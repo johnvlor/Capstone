@@ -15,6 +15,7 @@ namespace Capstone.Models
 
         public DateTime Created { get; set; }
 
+
         public DateTime Start { get; set; }
 
         public DateTime End { get; set; }

@@ -11,6 +11,8 @@ namespace Capstone.Models
         [Key]
         public int ID { get; set; }
 
+        //public string EventID { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -18,6 +20,8 @@ namespace Capstone.Models
         public DateTime Start { get; set; }
 
         public DateTime End { get; set; }
+
+        public bool AllDay { get; set; }
 
         public string ThemeColor { get; set; }
     }

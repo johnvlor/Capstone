@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Capstone.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Capstone.Controllers
 {
@@ -46,10 +47,11 @@ namespace Capstone.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,UserID")] User user)
+        public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
             {
+                user.UserID = User.Identity.GetUserId();
                 db.User.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");

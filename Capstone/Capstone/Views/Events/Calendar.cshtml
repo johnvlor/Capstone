@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Calendar";
+}
+
+<head>
+
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+    <script src="~/Scripts/fullcalendar.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+@section scripts
+    {
+    <script type="text/javascript">// <![CDATA[
+
+
+        $(document).ready(function () {
+
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+                theme: true,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+
+                defaultView: 'month',
+                editable: false,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 15,
+                events: '/events/getevents/'
+                //events: [
+                //    {
+                //        title: 'event1',
+                //        start: '2017-09-01'
+                //    },
+                //    {
+                //        title: 'event2',
+                //        start: '2017-09-05',
+                //        end: '2017-09-07'
+                //    },
+                //    {
+                //        title: 'event3',
+                //        start: '2017-09-09T12:30:00',
+                //        allDay: false // will make the time show
+                //    }
+                //]
+            });
+
+        });
+    </script>
+    }
+
+    @*@section scripts{
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                theme: true,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+
+                defaultView: 'agendaDay',
+                editable: true,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 15,
+                events: "/home/getevents/"
+            });
+        });
+        </script>*@
+
+    
+
+</head>
+
+<h2>Calendar</h2>
+
+<div id="calendar"></div>
+
