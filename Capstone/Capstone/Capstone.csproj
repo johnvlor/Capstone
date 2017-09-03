@@ -237,6 +237,18 @@
     <Compile Include="Migrations\201709011554196_UpdateEventsTable.Designer.cs">
       <DependentUpon>201709011554196_UpdateEventsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709032146559_AddAnnouncementToEventTable.cs" />
+    <Compile Include="Migrations\201709032146559_AddAnnouncementToEventTable.Designer.cs">
+      <DependentUpon>201709032146559_AddAnnouncementToEventTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709032148508_UpdateAnnouncementToEventTable.cs" />
+    <Compile Include="Migrations\201709032148508_UpdateAnnouncementToEventTable.Designer.cs">
+      <DependentUpon>201709032148508_UpdateAnnouncementToEventTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709032204010_AddEventIDForeignKeyToMember.cs" />
+    <Compile Include="Migrations\201709032204010_AddEventIDForeignKeyToMember.Designer.cs">
+      <DependentUpon>201709032204010_AddEventIDForeignKeyToMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -255,6 +267,7 @@
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
+    <Content Include="Content\jquery.datetimepicker.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -319,6 +332,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.full.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -512,6 +526,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709011554196_UpdateEventsTable.resx">
       <DependentUpon>201709011554196_UpdateEventsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709032146559_AddAnnouncementToEventTable.resx">
+      <DependentUpon>201709032146559_AddAnnouncementToEventTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709032148508_UpdateAnnouncementToEventTable.resx">
+      <DependentUpon>201709032148508_UpdateAnnouncementToEventTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709032204010_AddEventIDForeignKeyToMember.resx">
+      <DependentUpon>201709032204010_AddEventIDForeignKeyToMember.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

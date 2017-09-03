@@ -53,7 +53,7 @@ namespace Capstone.Controllers
                 announcement.Created = DateTime.Now;
                 db.Announcement.Add(announcement);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(announcement);

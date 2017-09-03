@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Capstone.Models.Announcement>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -8,7 +10,36 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-<div class="row">
+<h2>Announcements</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Posted On</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Start)</th>
+            <th>@Html.DisplayNameFor(model => model.End)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Created)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.Start)</td>
+                <td>@Html.DisplayFor(modelItem => item.End)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+@*<div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
@@ -28,4 +59,4 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
-</div>
+</div>*@

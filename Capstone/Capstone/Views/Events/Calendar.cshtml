@@ -11,11 +11,10 @@
     <script src="~/Scripts/jquery.min.js"></script>
 @section scripts
     {
-    <script type="text/javascript">// <![CDATA[
-
+    <script type="text/javascript">
 
         $(document).ready(function () {
-
+             
             // page is now ready, initialize the calendar...
 
             $('#calendar').fullCalendar({
@@ -29,10 +28,26 @@
 
                 defaultView: 'month',
                 editable: false,
-                allDaySlot: false,
+                allDaySlot: true,
                 selectable: true,
                 slotMinutes: 15,
-                events: '/events/getevents/'
+                events: '/events/getevents/',
+                eventClick: function (calEvent, jsEvent, view) {
+                    ViewBag.ID = calEvent.id;
+                    var url = '@Url.Action("Detail", "Events", new { id = ViewBag.ID})';
+                    window.location.href = url;
+
+                //eventClick: function (calEvent, jsEvent, view) {
+                    //alert('You clicked on event id: ' + calEvent.id
+                    //    + "\nEvent Name: " + calEvent.title
+                    //    + "\nDescription: " + calEvent.description)
+                    //$(this).css('border-color', 'red');
+                },
+                dayClick: function () {
+                    var url = '@Url.Action("Create", "Events")';
+                    window.location.href = url;
+                }
+
                 //events: [
                 //    {
                 //        title: 'event1',
@@ -54,34 +69,10 @@
         });
     </script>
     }
-
-    @*@section scripts{
-
-        <script type="text/javascript">
-        $(document).ready(function () {
-            $('#calendar').fullCalendar({
-                theme: true,
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-
-                defaultView: 'agendaDay',
-                editable: true,
-                allDaySlot: false,
-                selectable: true,
-                slotMinutes: 15,
-                events: "/home/getevents/"
-            });
-        });
-        </script>*@
-
-    
+   
 
 </head>
 
 <h2>Calendar</h2>
 
 <div id="calendar"></div>
-

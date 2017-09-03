@@ -38,5 +38,8 @@ namespace Capstone.Models
         public string Zip { get; set; }
 
         public string Additional { get; set; }
+
+        public string EventID { get; set; }
+        public virtual Event Event { get; set; }
     }
 }

@@ -24,5 +24,7 @@ namespace Capstone.Models
         public bool AllDay { get; set; }
 
         public string ThemeColor { get; set; }
+
+        public bool Announcement { get; set; }
     }
 }
