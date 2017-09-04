@@ -190,6 +190,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnnouncementsController.cs" />
+    <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -249,10 +250,15 @@
     <Compile Include="Migrations\201709032204010_AddEventIDForeignKeyToMember.Designer.cs">
       <DependentUpon>201709032204010_AddEventIDForeignKeyToMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709041252378_AddAttendanceTable.cs" />
+    <Compile Include="Migrations\201709041252378_AddAttendanceTable.Designer.cs">
+      <DependentUpon>201709041252378_AddAttendanceTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Announcement.cs" />
+    <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -480,6 +486,11 @@
     <Content Include="Views\Announcements\Edit.cshtml" />
     <Content Include="Views\Announcements\Index.cshtml" />
     <Content Include="Views\Events\Calendar.cshtml" />
+    <Content Include="Views\Attendances\Create.cshtml" />
+    <Content Include="Views\Attendances\Delete.cshtml" />
+    <Content Include="Views\Attendances\Details.cshtml" />
+    <Content Include="Views\Attendances\Edit.cshtml" />
+    <Content Include="Views\Attendances\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -535,6 +546,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709032204010_AddEventIDForeignKeyToMember.resx">
       <DependentUpon>201709032204010_AddEventIDForeignKeyToMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709041252378_AddAttendanceTable.resx">
+      <DependentUpon>201709041252378_AddAttendanceTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

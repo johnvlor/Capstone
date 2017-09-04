@@ -32,6 +32,7 @@ namespace Capstone.Models
         public DbSet<Announcement> Announcement { get; set; }
         public DbSet<Event> Event { get; set; }
         public DbSet<Member> Member { get; set; }
+        public DbSet<Attendance> Attendance { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -42,5 +43,7 @@ namespace Capstone.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<Capstone.Models.Attendance> Attendances { get; set; }
     }
 }
