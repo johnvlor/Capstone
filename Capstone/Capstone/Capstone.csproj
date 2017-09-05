@@ -254,6 +254,14 @@
     <Compile Include="Migrations\201709041252378_AddAttendanceTable.Designer.cs">
       <DependentUpon>201709041252378_AddAttendanceTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709051854281_AddEventsPageColumnToEvents.cs" />
+    <Compile Include="Migrations\201709051854281_AddEventsPageColumnToEvents.Designer.cs">
+      <DependentUpon>201709051854281_AddEventsPageColumnToEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709051922149_AddColumnsForEvents.cs" />
+    <Compile Include="Migrations\201709051922149_AddColumnsForEvents.Designer.cs">
+      <DependentUpon>201709051922149_AddColumnsForEvents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -494,6 +502,8 @@
     <Content Include="Views\Attendances\Index.cshtml" />
     <Content Include="Views\Home\PrayerRequest.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
+    <Content Include="Views\Events\IndexEventsPage.cshtml" />
+    <Content Include="Views\Events\DetailsEventsPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -552,6 +562,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709041252378_AddAttendanceTable.resx">
       <DependentUpon>201709041252378_AddAttendanceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051854281_AddEventsPageColumnToEvents.resx">
+      <DependentUpon>201709051854281_AddEventsPageColumnToEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051922149_AddColumnsForEvents.resx">
+      <DependentUpon>201709051922149_AddColumnsForEvents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

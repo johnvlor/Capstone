@@ -14,17 +14,24 @@ namespace Capstone.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        private readonly Event _event;
+        //private readonly Event _event;
 
-        public EventsController()
-        {
-            _event = new Event();
-        }
+        //public EventsController()
+        //{
+        //    _event = new Event();
+        //}
 
         // GET: Events
         public ActionResult Index()
         {
             return View(db.Event.ToList());
+        }
+
+        public ActionResult IndexEventsPage()
+        {
+            var events = db.Event.Where(e => e.EventsPage == true);
+
+            return View(events);
         }
 
         public ActionResult Calendar()
@@ -72,9 +79,24 @@ namespace Capstone.Controllers
             return View(@event);
         }
 
+        public ActionResult DetailsEventsPage(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Event @event = db.Event.Find(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+            return View(@event);
+        }
+
         // GET: Events/Create
         public ActionResult Create()
         {
+
             return View();
         }
 

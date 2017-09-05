@@ -24,6 +24,33 @@ namespace Capstone.Models
 
         public string ThemeColor { get; set; }
 
+        [Display (Name = "Add to Announcements?")]
         public bool Announcement { get; set; }
+
+        [Display(Name = "Add to Events Page?")]
+        public bool EventsPage { get; set; }
+
+        [Display (Name = "Contact")]
+        public string ContactName { get; set; }
+
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
+        public string ContactEmail { get; set; }
+
+        [Display(Name = "Phone")]
+        [RegularExpression(@"\d{10}$", ErrorMessage = "Invalid Phone Number")]
+        public string ContactPhone { get; set; }
+
+        public string Address { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        [RegularExpression(@"\d{5}$", ErrorMessage = "Invalid Zip Code")]
+        public string Zip { get; set; }
+
+        public string Additional { get; set; }
+
     }
 }
