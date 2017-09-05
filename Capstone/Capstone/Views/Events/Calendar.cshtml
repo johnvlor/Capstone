@@ -14,7 +14,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-             
+
             // page is now ready, initialize the calendar...
 
             $('#calendar').fullCalendar({
@@ -33,39 +33,23 @@
                 slotMinutes: 15,
                 events: '/events/getevents/',
                 eventClick: function (calEvent, jsEvent, view) {
-                    ViewBag.ID = calEvent.id;
-                    var url = '@Url.Action("Detail", "Events", new { id = ViewBag.ID})';
-                    window.location.href = url;
+
+                    //ViewBag.ID = event.id;
+                    @*var url = '@Url.Action("Details", "Events"@*, new { id = ViewBag.ID})';
+                    window.location.href = url;*@
 
                 //eventClick: function (calEvent, jsEvent, view) {
-                    //alert('You clicked on event id: ' + calEvent.id
-                    //    + "\nEvent Name: " + calEvent.title
-                    //    + "\nDescription: " + calEvent.description)
-                    //$(this).css('border-color', 'red');
+
+                    alert('You clicked on event id: ' + calEvent.id
+                        + "\nEvent Name: " + calEvent.title
+                        + "\nDescription: " + calEvent.description),
+                    $(this).css('border-color', 'red');
                 },
                 dayClick: function () {
                     var url = '@Url.Action("Create", "Events")';
                     window.location.href = url;
                 }
-
-                //events: [
-                //    {
-                //        title: 'event1',
-                //        start: '2017-09-01'
-                //    },
-                //    {
-                //        title: 'event2',
-                //        start: '2017-09-05',
-                //        end: '2017-09-07'
-                //    },
-                //    {
-                //        title: 'event3',
-                //        start: '2017-09-09T12:30:00',
-                //        allDay: false // will make the time show
-                //    }
-                //]
             });
-
         });
     </script>
     }

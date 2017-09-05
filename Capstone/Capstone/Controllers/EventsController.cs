@@ -57,7 +57,6 @@ namespace Capstone.Controllers
             return Json(eventList.ToArray(), JsonRequestBehavior.AllowGet);
         }
 
-
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
