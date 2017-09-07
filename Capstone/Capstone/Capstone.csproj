@@ -195,6 +195,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -275,6 +276,26 @@
     <Compile Include="Migrations\201709070231176_AddImageToEvents.Designer.cs">
       <DependentUpon>201709070231176_AddImageToEvents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709071727182_AddLocationColumnToEvents.cs" />
+    <Compile Include="Migrations\201709071727182_AddLocationColumnToEvents.Designer.cs">
+      <DependentUpon>201709071727182_AddLocationColumnToEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709072043056_AddPayPalTable.cs" />
+    <Compile Include="Migrations\201709072043056_AddPayPalTable.Designer.cs">
+      <DependentUpon>201709072043056_AddPayPalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709072047207_UpdatePayPalTable.cs" />
+    <Compile Include="Migrations\201709072047207_UpdatePayPalTable.Designer.cs">
+      <DependentUpon>201709072047207_UpdatePayPalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709072104233_AddDateToPayPalModel.cs" />
+    <Compile Include="Migrations\201709072104233_AddDateToPayPalModel.Designer.cs">
+      <DependentUpon>201709072104233_AddDateToPayPalModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709072110413_UpdatePayPalModelTable.cs" />
+    <Compile Include="Migrations\201709072110413_UpdatePayPalModelTable.Designer.cs">
+      <DependentUpon>201709072110413_UpdatePayPalModelTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -285,7 +306,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\PayPalModel.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="PayPal\PDTHolder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -525,6 +548,9 @@
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Home\EventRegistration.cshtml" />
+    <Content Include="Views\PayPal\PayPal.cshtml" />
+    <Content Include="Views\PayPal\Success.cshtml" />
+    <Content Include="Views\PayPal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -598,6 +624,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709070231176_AddImageToEvents.resx">
       <DependentUpon>201709070231176_AddImageToEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709071727182_AddLocationColumnToEvents.resx">
+      <DependentUpon>201709071727182_AddLocationColumnToEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709072043056_AddPayPalTable.resx">
+      <DependentUpon>201709072043056_AddPayPalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709072047207_UpdatePayPalTable.resx">
+      <DependentUpon>201709072047207_UpdatePayPalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709072104233_AddDateToPayPalModel.resx">
+      <DependentUpon>201709072104233_AddDateToPayPalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709072110413_UpdatePayPalModelTable.resx">
+      <DependentUpon>201709072110413_UpdatePayPalModelTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

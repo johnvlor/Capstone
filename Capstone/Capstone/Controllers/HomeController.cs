@@ -90,14 +90,15 @@ namespace Capstone.Controllers
                     "<p>Yes, I will be attending the below.</p>" +
                     "<p>{2}</p>" +
                     "<p>When: {3}</p>" +
-                    "<p>Where: {4}, {5}, {6} {7}" +
+                    "<p>Where: {9}" +
+                    "<p>{4}, {5}, {6} {7}</p>" +
                     "<p>Thanks,</p>" +
                     "<p>{8}</p>";
                 var message = new MailMessage();
                 message.To.Add(new MailAddress(events.ContactEmail));  // replace with valid value 
                 message.From = new MailAddress("teamintegrationproject@gmail.com");  // replace with valid value
                 message.Subject = events.Name + " - Event Registration";
-                message.Body = string.Format(body, member.Name, member.Email, events.Name, events.Start, events.Address, events.City, events.State, events.Zip, member.Name);
+                message.Body = string.Format(body, member.Name, member.Email, events.Name, events.Start, events.Address, events.City, events.State, events.Zip, member.Name, events.Location);
                 message.IsBodyHtml = true;
 
                 using (var smtp = new SmtpClient())
@@ -105,7 +106,7 @@ namespace Capstone.Controllers
                     var credential = new NetworkCredential
                     {
                         UserName = "teamintegrationproject@gmail.com",  // replace with valid value
-                        Password = "vanadium1"  // replace with valid value
+                        Password = ""  // replace with valid value
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp.gmail.com";

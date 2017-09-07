@@ -35,20 +35,26 @@
     <div class="row" style="border: thin solid black">
         <div class="col-md-6" style="border: thin solid black">
             <h4>About the Event</h4>
+            <hr />
             <p>@Html.DisplayFor(model => model.Description)</p>
         </div>
-        <div class="col-md-2" style="border: thin solid black; text-align:center;">
+        <div class="col-md-1" style="border: thin solid black; text-align:center;">
             <br />
         </div>
-        <div class="col-md-4" style="border: thin solid black">
-            <h4><i>When</i></h4>
+        <div class="col-md-1" style="border: thin solid black; text-align:center;">
+            <br />
+        </div>
+        <div class="col-md-4" style="border: thin solid black; background-color: lightgoldenrodyellow; border-radius: 10px; padding-bottom: 10px;">
+            <h3>Event Details</h3>
+            <h5><i>When</i></h5>
             <p>@Html.DisplayFor(model => model.Start) @Html.DisplayFor(model => model.End)</p>
 
-            <h4><i>Where</i></h4>
-            @Html.DisplayFor(model => model.Address) , @Html.DisplayFor(model => model.City) @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.Zip)
+            <h5><i>Where</i></h5>
+            @Html.DisplayFor(model => model.Location)
+            <br />@Html.DisplayFor(model => model.Address) , @Html.DisplayFor(model => model.City) @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.Zip)
             <p></p>
 
-            <h4><i>Contact</i></h4>
+            <h5><i>Contact</i></h5>
             @Html.DisplayFor(model => model.ContactName)
             <br />@Html.DisplayFor(model => model.ContactEmail)
             <br />@Html.DisplayFor(model => model.ContactPhone)

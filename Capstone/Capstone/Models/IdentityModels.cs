@@ -33,6 +33,7 @@ namespace Capstone.Models
         public DbSet<Event> Event { get; set; }
         public DbSet<Member> Member { get; set; }
         public DbSet<Attendance> Attendance { get; set; }
+        public DbSet<PayPalModel> PayPalModel { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

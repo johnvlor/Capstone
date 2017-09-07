@@ -41,6 +41,8 @@ namespace Capstone.Models
         [RegularExpression(@"\d{10}$", ErrorMessage = "Invalid Phone Number")]
         public string ContactPhone { get; set; }
 
+        public string Location { get; set; }
+
         public string Address { get; set; }
 
         public string City { get; set; }

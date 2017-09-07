@@ -14,13 +14,6 @@ namespace Capstone.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        //private readonly Event _event;
-
-        //public EventsController()
-        //{
-        //    _event = new Event();
-        //}
-
         // GET: Events
         public ActionResult Index()
         {
