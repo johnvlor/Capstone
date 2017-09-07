@@ -85,7 +85,8 @@ namespace Capstone.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Event.Find(id);
+            //Event @event = db.Event.Find(id);
+            Event @event = db.Event.SingleOrDefault(s => s.ID == id);
             if (@event == null)
             {
                 return HttpNotFound();
@@ -105,17 +106,24 @@ namespace Capstone.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Event @event)
+        public ActionResult Create(Event @event, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    file.SaveAs(HttpContext.Server.MapPath("~/Images/")
+                                                          + file.FileName);
+                    @event.ImagePath = file.FileName;
+                }
+
                 db.Event.Add(@event);
                 if (@event.Announcement == true)
                 {
                     Announcement announcement = new Announcement()
                     {
                         Created = DateTime.Now,
-                        Description = @event.Description,
+                        Description = @event.Name+".  "+@event.Description,
                         Start = @event.Start,
                         End = @event.End
                     };
@@ -193,6 +201,11 @@ namespace Capstone.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult MemberRoute(int id)
+        {
+            return RedirectToAction("Create", "Members", new { id = id });
         }
     }
 }

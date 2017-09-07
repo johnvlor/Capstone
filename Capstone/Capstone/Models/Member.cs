@@ -28,18 +28,18 @@ namespace Capstone.Models
         [RegularExpression(@"\d{10}$", ErrorMessage = "Invalid Phone Number")]
         public string Phone { get; set; }
 
-        public string Address { get; set; }
+        //public string Address { get; set; }
 
-        public string City { get; set; }
+        //public string City { get; set; }
 
-        public string State { get; set; }
+        //public string State { get; set; }
 
-        [RegularExpression(@"\d{5}$", ErrorMessage = "Invalid Zip Code")]
-        public string Zip { get; set; }
+        //[RegularExpression(@"\d{5}$", ErrorMessage = "Invalid Zip Code")]
+        //public string Zip { get; set; }
 
         public string Additional { get; set; }
 
-        public string EventID { get; set; }
+        public int EventID { get; set; }
         public virtual Event Event { get; set; }
     }
 }

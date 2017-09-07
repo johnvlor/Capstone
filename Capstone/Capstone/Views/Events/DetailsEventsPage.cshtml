@@ -4,7 +4,61 @@
     ViewBag.Title = "DetailsEventsPage";
 }
 
-<h2>@Model.Name</h2>
+@*<h2>@Model.Name</h2>*@
+
+<div class="container" style="border: thin solid black">
+    <div class="row" style="border: thin solid black; padding-bottom: 20px;" >
+        <div class="col-md-2">
+            <br />
+        </div>
+        <div class="col-md-8" style="text-align:center; font-size:40px">
+            @Model.Name
+        </div>
+        <div class="col-md-2">
+            <br />
+        </div>
+    </div>
+    @if (Model.ImagePath != null)
+    {
+    <div class="row">
+        <div class="col-md-2">
+            <br />
+        </div>
+        <div class="col-md-8" style="text-align:center; font-size:40px">
+            <img src="~/Images/@Model.ImagePath" height="300" width="600"/>
+        </div>
+        <div class="col-md-2">
+            <br />
+        </div>
+    </div>
+    }
+    <div class="row" style="border: thin solid black">
+        <div class="col-md-6" style="border: thin solid black">
+            <h4>About the Event</h4>
+            <p>@Html.DisplayFor(model => model.Description)</p>
+        </div>
+        <div class="col-md-2" style="border: thin solid black; text-align:center;">
+            <br />
+        </div>
+        <div class="col-md-4" style="border: thin solid black">
+            <h4><i>When</i></h4>
+            <p>@Html.DisplayFor(model => model.Start) @Html.DisplayFor(model => model.End)</p>
+
+            <h4><i>Where</i></h4>
+            @Html.DisplayFor(model => model.Address) , @Html.DisplayFor(model => model.City) @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.Zip)
+            <p></p>
+
+            <h4><i>Contact</i></h4>
+            @Html.DisplayFor(model => model.ContactName)
+            <br />@Html.DisplayFor(model => model.ContactEmail)
+            <br />@Html.DisplayFor(model => model.ContactPhone)
+        </div>
+        <div class="row" style="border: thin solid black">
+            <div class="col-md-4" style="border: thin solid black">
+                @Html.ActionLink("Register", "MemberRoute", new { id = Model.ID }, new { @class = "btn btn-primary" })
+            </div>
+        </div> 
+    </div>
 
 <div>
     @*<h4>Event</h4>*@
@@ -73,9 +127,35 @@
         <dd>
             @Html.DisplayFor(model => model.Zip)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPhone)
+        </dd>
+
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Signup", "MemberRoute", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

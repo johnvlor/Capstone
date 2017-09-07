@@ -50,7 +50,8 @@ namespace Capstone.Models
         [RegularExpression(@"\d{5}$", ErrorMessage = "Invalid Zip Code")]
         public string Zip { get; set; }
 
-        public string Additional { get; set; }
+        [Display(Name = "Image")]
+        public string ImagePath { get; set; }
 
     }
 }

@@ -194,6 +194,7 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -261,6 +262,18 @@
     <Compile Include="Migrations\201709051922149_AddColumnsForEvents.cs" />
     <Compile Include="Migrations\201709051922149_AddColumnsForEvents.Designer.cs">
       <DependentUpon>201709051922149_AddColumnsForEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709060158295_UpdateEventIDForeignKeyInMembers.cs" />
+    <Compile Include="Migrations\201709060158295_UpdateEventIDForeignKeyInMembers.Designer.cs">
+      <DependentUpon>201709060158295_UpdateEventIDForeignKeyInMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709061218330_RemoveAddressColumnsFromMembers.cs" />
+    <Compile Include="Migrations\201709061218330_RemoveAddressColumnsFromMembers.Designer.cs">
+      <DependentUpon>201709061218330_RemoveAddressColumnsFromMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709070231176_AddImageToEvents.cs" />
+    <Compile Include="Migrations\201709070231176_AddImageToEvents.Designer.cs">
+      <DependentUpon>201709070231176_AddImageToEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
@@ -452,7 +465,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -504,6 +519,11 @@
     <Content Include="Views\Home\Sent.cshtml" />
     <Content Include="Views\Events\IndexEventsPage.cshtml" />
     <Content Include="Views\Events\DetailsEventsPage.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -568,6 +588,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709051922149_AddColumnsForEvents.resx">
       <DependentUpon>201709051922149_AddColumnsForEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709060158295_UpdateEventIDForeignKeyInMembers.resx">
+      <DependentUpon>201709060158295_UpdateEventIDForeignKeyInMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709061218330_RemoveAddressColumnsFromMembers.resx">
+      <DependentUpon>201709061218330_RemoveAddressColumnsFromMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709070231176_AddImageToEvents.resx">
+      <DependentUpon>201709070231176_AddImageToEvents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
