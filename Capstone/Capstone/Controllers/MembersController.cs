@@ -38,8 +38,10 @@ namespace Capstone.Controllers
         }
 
         // GET: Members/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            var events = db.Event.SingleOrDefault(e => e.ID == id);
+            ViewBag.Event = events.Name;
             return View();
         }
 
@@ -55,7 +57,7 @@ namespace Capstone.Controllers
                 member.EventID = id;
                 db.Member.Add(member);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EventRegistration", "Home", member);
             }
 
             return View(member);
@@ -81,7 +83,7 @@ namespace Capstone.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Email,Phone,Address,City,State,Zip,Additional,EventID")] Member member)
+        public ActionResult Edit(Member member)
         {
             if (ModelState.IsValid)
             {
