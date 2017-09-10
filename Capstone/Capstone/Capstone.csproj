@@ -296,6 +296,42 @@
     <Compile Include="Migrations\201709072110413_UpdatePayPalModelTable.Designer.cs">
       <DependentUpon>201709072110413_UpdatePayPalModelTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709080031070_AddTransactionIdToPayPal.cs" />
+    <Compile Include="Migrations\201709080031070_AddTransactionIdToPayPal.Designer.cs">
+      <DependentUpon>201709080031070_AddTransactionIdToPayPal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709080035127_UpdateDateTypeForPayPal.cs" />
+    <Compile Include="Migrations\201709080035127_UpdateDateTypeForPayPal.Designer.cs">
+      <DependentUpon>201709080035127_UpdateDateTypeForPayPal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709081240562_UpdateTransactionIdToString.cs" />
+    <Compile Include="Migrations\201709081240562_UpdateTransactionIdToString.Designer.cs">
+      <DependentUpon>201709081240562_UpdateTransactionIdToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709081858552_UpdateDatesForAnnouncementsToBeNullable.cs" />
+    <Compile Include="Migrations\201709081858552_UpdateDatesForAnnouncementsToBeNullable.Designer.cs">
+      <DependentUpon>201709081858552_UpdateDatesForAnnouncementsToBeNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709100000077_AddTotalAttendanceColumn.cs" />
+    <Compile Include="Migrations\201709100000077_AddTotalAttendanceColumn.Designer.cs">
+      <DependentUpon>201709100000077_AddTotalAttendanceColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709100116122_AddIenumerableAccountType.cs" />
+    <Compile Include="Migrations\201709100116122_AddIenumerableAccountType.Designer.cs">
+      <DependentUpon>201709100116122_AddIenumerableAccountType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709100355504_AddIenumerableAccountType1.cs" />
+    <Compile Include="Migrations\201709100355504_AddIenumerableAccountType1.Designer.cs">
+      <DependentUpon>201709100355504_AddIenumerableAccountType1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709101221350_AddIenumerableAccountTypeToRegister.cs" />
+    <Compile Include="Migrations\201709101221350_AddIenumerableAccountTypeToRegister.Designer.cs">
+      <DependentUpon>201709101221350_AddIenumerableAccountTypeToRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709101245234_RemoveIenumerableAccountType.cs" />
+    <Compile Include="Migrations\201709101245234_RemoveIenumerableAccountType.Designer.cs">
+      <DependentUpon>201709101245234_RemoveIenumerableAccountType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -551,6 +587,7 @@
     <Content Include="Views\PayPal\PayPal.cshtml" />
     <Content Include="Views\PayPal\Success.cshtml" />
     <Content Include="Views\PayPal\Index.cshtml" />
+    <Content Include="Views\Attendances\IndexReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -639,6 +676,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709072110413_UpdatePayPalModelTable.resx">
       <DependentUpon>201709072110413_UpdatePayPalModelTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709080031070_AddTransactionIdToPayPal.resx">
+      <DependentUpon>201709080031070_AddTransactionIdToPayPal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709080035127_UpdateDateTypeForPayPal.resx">
+      <DependentUpon>201709080035127_UpdateDateTypeForPayPal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709081240562_UpdateTransactionIdToString.resx">
+      <DependentUpon>201709081240562_UpdateTransactionIdToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709081858552_UpdateDatesForAnnouncementsToBeNullable.resx">
+      <DependentUpon>201709081858552_UpdateDatesForAnnouncementsToBeNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709100000077_AddTotalAttendanceColumn.resx">
+      <DependentUpon>201709100000077_AddTotalAttendanceColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709100116122_AddIenumerableAccountType.resx">
+      <DependentUpon>201709100116122_AddIenumerableAccountType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709100355504_AddIenumerableAccountType1.resx">
+      <DependentUpon>201709100355504_AddIenumerableAccountType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709101221350_AddIenumerableAccountTypeToRegister.resx">
+      <DependentUpon>201709101221350_AddIenumerableAccountTypeToRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709101245234_RemoveIenumerableAccountType.resx">
+      <DependentUpon>201709101245234_RemoveIenumerableAccountType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

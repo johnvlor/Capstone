@@ -11,9 +11,13 @@ namespace Capstone.Models
         [Key]
         public int ID { get; set; }
 
+        [Display (Name ="Donation Amount")]
         public double PaymentAmount { get; set; }
 
-        public string Date { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        public DateTime Date { get; set; }
+
+        public string PayPalTransactionID { get; set; }
 
     }
 }

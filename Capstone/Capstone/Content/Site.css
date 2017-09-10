@@ -22,3 +22,28 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.contact-info-box {
+    font-size: 15px;
+    margin: 0 0 14px 68px;
+    padding-left: 0;
+}
+
+.main-section.contact {
+    padding: 90px 0 100px;
+}
+
+.contact-info-box {
+    font-size: 15px;
+    margin: 0 0 14px 68px;
+    padding-left: 0;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #222222;
+    font-size: 16px;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}

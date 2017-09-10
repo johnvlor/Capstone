@@ -17,6 +17,10 @@ namespace Capstone.Models
 
         public int Guest { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime Date { get; set; }
+
+        [Display (Name ="Total Attendance")]
+        public double Total { get; set; }
     }
 }

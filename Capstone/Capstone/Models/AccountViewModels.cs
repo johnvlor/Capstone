@@ -82,6 +82,7 @@ namespace Capstone.Models
 
         [Display(Name = "Account Type")]
         public int AccountTypeID { get; set; }
+
     }
 
     public class ResetPasswordViewModel

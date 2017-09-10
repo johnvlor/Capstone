@@ -6,7 +6,7 @@
 
 @*<h2>@Model.Name</h2>*@
 
-<div class="container" style="border: thin solid black">
+<div class="container" style="border: thin solid black; background-color:aliceblue">
     <div class="row" style="border: thin solid black; padding-bottom: 20px;" >
         <div class="col-md-2">
             <br />
@@ -20,17 +20,17 @@
     </div>
     @if (Model.ImagePath != null)
     {
-    <div class="row">
-        <div class="col-md-2">
-            <br />
+        <div class="row">
+            <div class="col-md-2">
+                <br />
+            </div>
+            <div class="col-md-8" style="text-align:center; font-size:40px">
+                <img src="~/Images/@Model.ImagePath" height="300" width="600"/>
+            </div>
+            <div class="col-md-2">
+                <br />
+            </div>
         </div>
-        <div class="col-md-8" style="text-align:center; font-size:40px">
-            <img src="~/Images/@Model.ImagePath" height="300" width="600"/>
-        </div>
-        <div class="col-md-2">
-            <br />
-        </div>
-    </div>
     }
     <div class="row" style="border: thin solid black">
         <div class="col-md-6" style="border: thin solid black">
@@ -44,8 +44,9 @@
         <div class="col-md-1" style="border: thin solid black; text-align:center;">
             <br />
         </div>
-        <div class="col-md-4" style="border: thin solid black; background-color: lightgoldenrodyellow; border-radius: 10px; padding-bottom: 10px;">
+        <div class="col-md-4" style="border: thin solid black; background-color: lightgoldenrodyellow; border-radius: 10px; padding-top: 15px; padding-bottom: 10px;">
             <h3>Event Details</h3>
+            <hr />
             <h5><i>When</i></h5>
             <p>@Html.DisplayFor(model => model.Start) @Html.DisplayFor(model => model.End)</p>
 
@@ -67,17 +68,9 @@
     </div>
 </div>
 
-<div>
-    @*<h4>Event</h4>*@
+@*<div>
     <hr />
     <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.Description)
@@ -160,9 +153,8 @@
         </dd>
 
     </dl>
-</div>
+</div>*@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Signup", "MemberRoute", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "IndexEventsPage")
 </p>

@@ -17,7 +17,37 @@ namespace Capstone.Controllers
         // GET: Attendances
         public ActionResult Index()
         {
-            return View(db.Attendance.ToList());
+            var today = DateTime.Today;
+            var attendances = db.Attendance.Where(a => a.Date == today);
+
+            return View(attendances);
+        }
+
+        public ActionResult IndexReport()
+        {
+            var attendances = db.Attendance;
+
+            return View(attendances);
+        }
+
+        [HttpPost]
+        public ActionResult IndexReport(DateTime startDate, DateTime endDate)
+        {
+            var attendances = db.Attendance.Where(a => a.Date >= startDate && a.Date <= endDate);
+
+            double avgService = db.Attendance.Where(a => a.Date >= startDate && a.Date <= endDate).Average(avg => avg.Service);
+            ViewBag.AvgService = Math.Round(avgService, 1);
+
+            double avgSundaySchool = db.Attendance.Where(a => a.Date >= startDate && a.Date <= endDate).Average(avg => avg.SundaySchool);
+            ViewBag.AvgSundaySchool = Math.Round(avgSundaySchool,1);
+
+            double avgGuest = db.Attendance.Where(a => a.Date >= startDate && a.Date <= endDate).Average(avg => avg.Guest);
+            ViewBag.AvgGuest = Math.Round(avgGuest,1);
+
+            double avgTotal = db.Attendance.Where(a => a.Date >= startDate && a.Date <= endDate).Average(avg => avg.Total);
+            ViewBag.AvgTotal = Math.Round(avgTotal,1);
+
+            return View(attendances);
         }
 
         // GET: Attendances/Details/5
@@ -46,10 +76,12 @@ namespace Capstone.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Service,SundaySchool,Guest,Date")] Attendance attendance)
+        public ActionResult Create(Attendance attendance)
         {
             if (ModelState.IsValid)
             {
+                attendance.Total = attendance.Service + attendance.SundaySchool + attendance.Guest;
+
                 db.Attendance.Add(attendance);
                 db.SaveChanges();
                 return RedirectToAction("Index");

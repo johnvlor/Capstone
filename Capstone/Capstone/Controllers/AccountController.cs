@@ -141,7 +141,17 @@ namespace Capstone.Controllers
         public ActionResult Register()
         {
             ViewBag.AccountTypeID = new SelectList(db.AccountType, "ID", "Type");
-            return View();
+
+            //var accountTypes = db.AccountType;
+            //RegisterViewModel model = new RegisterViewModel()
+            //{
+            //    AccountTypes = accountTypes
+            //};
+            //ApplicationUser user = new ApplicationUser()
+            //{
+            //    AccountTypes = accountTypes
+            //};
+            return View(/*model*/);
         }
 
         //
@@ -153,6 +163,8 @@ namespace Capstone.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.AccountTypeID = new SelectList(db.AccountType, "ID", "Type");
+
                 var user = new ApplicationUser
                 {
                     UserName = model.Email,

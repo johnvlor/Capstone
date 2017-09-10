@@ -2,15 +2,33 @@
 
 @{
     ViewBag.Title = "Index";
+
 }
 
-<h2>Index</h2>
+<head>
+    <link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
+</head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>Donation Gifts</h2>
+
 <table class="table">
     <tr>
+        <th>
+            Select Date Range
+        </th>
+        @using (Html.BeginForm("/Index", "PayPal", FormMethod.Post))
+        {
+        <th>           
+            @Html.TextBox("startDate", null, new { @class = "date-time-dropdown", type = "datetime" })
+            @Html.TextBox("endDate", null, new { @class = "date-time-dropdown", type = "datetime" })
+            
+            <input type="submit" value="Submit">           
+        </th>
+        }
+    </tr>
+    <tr>       
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
@@ -26,15 +44,31 @@
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PaymentAmount)
+            $@Html.DisplayFor(modelItem => item.PaymentAmount)
         </td>
 
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
+        </td>*@
     </tr>
 }
-
+    <tr>
+        <th>
+            Total Donations
+        </th>
+        <th>
+            $@ViewBag.TotalDonations
+        </th>
+    </tr>
 </table>
+
+<script>
+    $('.date-time-dropdown').datetimepicker({
+        timepicker: false,
+        step: 15,
+        format: 'm/d/Y'
+    });
+
+</script>

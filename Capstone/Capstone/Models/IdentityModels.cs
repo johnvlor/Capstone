@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Capstone.Models
 {
@@ -15,6 +16,7 @@ namespace Capstone.Models
         [Display(Name = "Account Type")]
         public int AccountTypeID { get; set; }
         public AccountType AccountType { get; set; }
+        //public IEnumerable<AccountType> AccountTypes { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -44,7 +46,5 @@ namespace Capstone.Models
         {
             return new ApplicationDbContext();
         }
-
-        //public System.Data.Entity.DbSet<Capstone.Models.Attendance> Attendances { get; set; }
     }
 }
