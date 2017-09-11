@@ -22,6 +22,7 @@ namespace Capstone.Models
 
         public bool AllDay { get; set; }
 
+        [Display (Name="Calendar Color")]
         public string ThemeColor { get; set; }
 
         [Display (Name = "Add to Announcements?")]

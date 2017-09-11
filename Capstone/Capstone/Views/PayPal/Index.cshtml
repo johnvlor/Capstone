@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Index";
-
 }
 
 <head>
@@ -11,7 +10,7 @@
     <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
 </head>
 
-<h2>Donation Gifts</h2>
+<h2>Donations Report</h2>
 
 <table class="table">
     <tr>
@@ -47,11 +46,6 @@
             $@Html.DisplayFor(modelItem => item.PaymentAmount)
         </td>
 
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>*@
     </tr>
 }
     <tr>

@@ -1,15 +1,18 @@
 ﻿@model IEnumerable<Capstone.Models.Event>
+@using Capstone.Extensions
 
 @{
     ViewBag.Title = "IndexEventsPage";
+
+    var userType = User.Identity.GetAccountTypeID();
 }
 
 <h2>Upcoming Events</h2>
 
- @if (Request.IsAuthenticated && ViewBag.UserAccountType != 3)
+ @if (Request.IsAuthenticated && userType != "3")
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New Event", "Create")
     </p>
 }
 
@@ -44,7 +47,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.End)
         </td>
-        @if (Request.IsAuthenticated && ViewBag.UserAccountType != 3)
+        @if (Request.IsAuthenticated && userType != "3")
         {
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

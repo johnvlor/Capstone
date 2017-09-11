@@ -23,14 +23,6 @@ namespace Capstone.Controllers
 
         public ActionResult IndexEventsPage()
         {
-            if (Request.IsAuthenticated)
-            {
-                var loggedUser = User.Identity.GetUserId();
-                var users = db.Users.Single(u => u.Id == loggedUser);
-
-                ViewBag.UserAccountType = users.AccountTypeID;
-            }
-
             var events = db.Event.Where(e => e.EventsPage == true);
 
             return View(events);
@@ -38,14 +30,6 @@ namespace Capstone.Controllers
 
         public ActionResult Calendar()
         {
-            if (Request.IsAuthenticated)
-            {
-                var loggedUser = User.Identity.GetUserId();
-                var users = db.Users.Single(u => u.Id == loggedUser);
-
-                ViewBag.UserAccountType = users.AccountTypeID;
-            }
-
             return View();
         }
 
@@ -176,10 +160,22 @@ namespace Capstone.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Event @event)
+        public ActionResult Edit(Event @event, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    file.SaveAs(HttpContext.Server.MapPath("~/Images/")
+                                                          + file.FileName);
+                    @event.ImagePath = file.FileName;
+                }
+
+                //if (@event.EventsPage == true)
+                //{
+                //    @event.EventsPage = true;
+                //}
+
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

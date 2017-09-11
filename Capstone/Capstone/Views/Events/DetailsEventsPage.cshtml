@@ -1,13 +1,15 @@
 ﻿@model Capstone.Models.Event
+@using Capstone.Extensions
 
 @{
     ViewBag.Title = "DetailsEventsPage";
+
+    var userType = User.Identity.GetAccountTypeID();
 }
 
-@*<h2>@Model.Name</h2>*@
 
-<div class="container" style="border: thin solid black; background-color:aliceblue">
-    <div class="row" style="border: thin solid black; padding-bottom: 20px;" >
+<div class="container">
+    <div class="row" style="padding-top: 20px; padding-bottom: 20px;" >
         <div class="col-md-2">
             <br />
         </div>
@@ -32,130 +34,59 @@
             </div>
         </div>
     }
-    <div class="row" style="border: thin solid black">
-        <div class="col-md-6" style="border: thin solid black">
+    <div class="row">
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-md-7" style="border: thin solid black; border-radius: 10px; padding-top: 15px; background-color:aliceblue">
             <h4>About the Event</h4>
             <hr />
             <p>@Html.DisplayFor(model => model.Description)</p>
+            <div>
+                <br />
+                <br />
+            </div>
+            <div style="padding-bottom: 20px;">
+                <br />
+                <h4>Sign up here</h4>
+                @Html.ActionLink("Register", "MemberRoute", new { id = Model.ID }, new { @class = "btn btn-primary" })
+            </div>
         </div>
-        <div class="col-md-1" style="border: thin solid black; text-align:center;">
-            <br />
-        </div>
-        <div class="col-md-1" style="border: thin solid black; text-align:center;">
+        <div class="col-md-1">
             <br />
         </div>
         <div class="col-md-4" style="border: thin solid black; background-color: lightgoldenrodyellow; border-radius: 10px; padding-top: 15px; padding-bottom: 10px;">
             <h3>Event Details</h3>
             <hr />
             <h5><i>When</i></h5>
-            <p>@Html.DisplayFor(model => model.Start) @Html.DisplayFor(model => model.End)</p>
+            <strong>@Html.DisplayFor(model => model.Start)</strong>
+            <i>to</i>
+            <strong>@Html.DisplayFor(model => model.End)</strong>
 
             <h5><i>Where</i></h5>
-            @Html.DisplayFor(model => model.Location)
+            <strong>@Html.DisplayFor(model => model.Location)</strong>
             <br />@Html.DisplayFor(model => model.Address) , @Html.DisplayFor(model => model.City) @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.Zip)
             <p></p>
 
             <h5><i>Contact</i></h5>
-            @Html.DisplayFor(model => model.ContactName)
+            <strong>@Html.DisplayFor(model => model.ContactName)</strong>
             <br />@Html.DisplayFor(model => model.ContactEmail)
             <br />@Html.DisplayFor(model => model.ContactPhone)
         </div>
-        <div class="row" style="border: thin solid black">
-            <div class="col-md-4" style="border: thin solid black">
-                @Html.ActionLink("Register", "MemberRoute", new { id = Model.ID }, new { @class = "btn btn-primary" })
-            </div>
-        </div> 
     </div>
+    @*<div class="row" style="padding-bottom: 20px; background-color:aliceblue">
+        <div class="col-md-4">
+            <div>
+                <h4>Sign up here!</h4>                   
+            </div>
+            @Html.ActionLink("Register", "MemberRoute", new { id = Model.ID }, new { @class = "btn btn-primary" })
+        </div>
+    </div>*@   
 </div>
 
-@*<div>
-    <hr />
-    <dl class="dl-horizontal">
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Start)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Start)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.End)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.End)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Zip)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Zip)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ContactName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactEmail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ContactEmail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactPhone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ContactPhone)
-        </dd>
-
-    </dl>
-</div>*@
+<br />
 <p>
-    @if (Request.IsAuthenticated && ViewBag.UserAccountType != 3)
+    @if (Request.IsAuthenticated && userType != "3")
     {
         @Html.ActionLink("Edit | ", "Edit", new { id = Model.ID })
     }
