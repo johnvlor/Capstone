@@ -6,9 +6,13 @@
 
 <h2>Upcoming Events</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+ @if (Request.IsAuthenticated && ViewBag.UserAccountType != 3)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -40,11 +44,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.End)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "DetailsEventsPage", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
+        @if (Request.IsAuthenticated && ViewBag.UserAccountType != 3)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "DetailsEventsPage", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        }
     </tr>
 }
 

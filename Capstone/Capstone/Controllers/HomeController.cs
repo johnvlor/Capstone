@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace Capstone.Controllers
 {
@@ -16,6 +17,13 @@ namespace Capstone.Controllers
 
         public ActionResult Index()
         {
+            if (Request.IsAuthenticated)
+            {
+                var loggedUser = User.Identity.GetUserId();
+                var users = db.Users.Single(u => u.Id == loggedUser);
+
+                ViewBag.UserAccountType = users.AccountTypeID;
+            }
             var announcements = db.Announcement.ToList().OrderByDescending(a => a.Created).Take(10);
 
             return View(announcements);

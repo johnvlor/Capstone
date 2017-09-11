@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Capstone.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Capstone.Controllers
 {
@@ -22,6 +23,14 @@ namespace Capstone.Controllers
 
         public ActionResult IndexEventsPage()
         {
+            if (Request.IsAuthenticated)
+            {
+                var loggedUser = User.Identity.GetUserId();
+                var users = db.Users.Single(u => u.Id == loggedUser);
+
+                ViewBag.UserAccountType = users.AccountTypeID;
+            }
+
             var events = db.Event.Where(e => e.EventsPage == true);
 
             return View(events);
@@ -29,6 +38,14 @@ namespace Capstone.Controllers
 
         public ActionResult Calendar()
         {
+            if (Request.IsAuthenticated)
+            {
+                var loggedUser = User.Identity.GetUserId();
+                var users = db.Users.Single(u => u.Id == loggedUser);
+
+                ViewBag.UserAccountType = users.AccountTypeID;
+            }
+
             return View();
         }
 
@@ -84,6 +101,15 @@ namespace Capstone.Controllers
             {
                 return HttpNotFound();
             }
+
+            if (Request.IsAuthenticated)
+            {
+                var loggedUser = User.Identity.GetUserId();
+                var users = db.Users.Single(u => u.Id == loggedUser);
+
+                ViewBag.UserAccountType = users.AccountTypeID;
+            }
+
             return View(@event);
         }
 

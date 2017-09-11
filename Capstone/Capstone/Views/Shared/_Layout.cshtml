@@ -1,8 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Capstone.Extensions
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/Content/fullcalendarcss")
@@ -25,14 +31,49 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                    <li>@Html.ActionLink("Prayer Request", "PrayerRequest", "Home")</li>
-                    <li>@Html.ActionLink("Announcements", "Index", "Announcements")</li>
-                    <li>@Html.ActionLink("Calendar", "Calendar", "Events")</li>
-                    <li>@Html.ActionLink("Events", "Index", "Events")</li>
+                    <li>@Html.ActionLink("Calendar", "Calendar", "Events")</li>                    
                     <li>@Html.ActionLink("Events Page", "IndexEventsPage", "Events")</li>
-                    <li>@Html.ActionLink("Attendance", "Index", "Attendances")</li>
-                    @*<li>@Html.ActionLink("Online Giving", "PayPal", "PayPal")</li>
-                    <li>@Html.ActionLink("Donation Gifts", "/Index", "PayPal")</li>*@
+                    <li>@Html.ActionLink("Prayer Request", "PrayerRequest", "Home")</li>
+                    <li>@Html.ActionLink("Online Giving", "PayPal", "PayPal")</li>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (User.Identity.GetAccountTypeID() != "3")
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Activities <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu navbar-inverse" role="menu">
+                                    <li><a href="#">@Html.ActionLink("Announcements", "Index", "Announcements")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Events", "Index", "Events")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Donation Gifts", "/Index", "PayPal")</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Attendance <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu navbar-inverse" role="menu">
+                                    <li><a href="#">@Html.ActionLink("Take Attendance", "Index", "Attendances")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Attendance Reports", "IndexReport", "Attendances")</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else if (User.Identity.GetAccountTypeID() == "3")
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Attendance <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu navbar-inverse" role="menu">
+                                    <li><a href="#">@Html.ActionLink("Take Attendance", "Index", "Attendances")</a></li>
+                                    <li><a href="#">@Html.ActionLink("Attendance Reports", "IndexReport", "Attendances")</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

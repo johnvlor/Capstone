@@ -1,13 +1,21 @@
 ﻿@model IEnumerable<Capstone.Models.Attendance>
+@using Capstone.Extensions
+
 
 @{
     ViewBag.Title = "Index";
+    var userType = User.Identity.GetAccountTypeID();
+    if (userType == "3")
+    {
+        Layout = "~/Views/Shared/_LayoutVolunteer.cshtml";
+    }
 }
 
-
+<br />
 <p>
     @Html.ActionLink("Take Attendance", "Create", null, new { @class = "btn btn-primary" })
 </p>
+<br />
 
 <h4>Today's Attendance</h4>
 <table class="table">

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Capstone.Models;
+using System.IO;
+using Facebook;
 
 namespace Capstone.Controllers
 {
@@ -48,13 +50,18 @@ namespace Capstone.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Announcement announcement)
+        public ActionResult Create(Announcement announcement, bool Facebook)
         {
             if (ModelState.IsValid)
             {
                 announcement.Created = DateTime.Now;
                 db.Announcement.Add(announcement);
                 db.SaveChanges();
+
+                //if (Facebook == true)
+                //{
+                //    CheckAuthorization(announcement);
+                //}
                 return RedirectToAction("Index", "Home");
             }
 
@@ -126,5 +133,6 @@ namespace Capstone.Controllers
             }
             base.Dispose(disposing);
         }
+       
     }
 }

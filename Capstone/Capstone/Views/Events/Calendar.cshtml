@@ -1,6 +1,9 @@
-﻿
+﻿@using Capstone.Extensions
+
 @{
     ViewBag.Title = "Calendar";
+
+    var userType = User.Identity.GetAccountTypeID();
 }
 
 <head>
@@ -45,11 +48,16 @@
                         + "\n\nDescription: " + calEvent.description),
                     $(this).css('border-color', 'red');
                 },
-                dayClick: function () {
-                    var url = '@Url.Action("Create", "Events")';
-                    window.location.href = url;
-                }
-            });
+                @if (Request.IsAuthenticated && userType != "3")
+                    {
+                        <text>
+                            dayClick: function () {
+                                var url = '@Url.Action("Create", "Events")';
+                                window.location.href = url;
+                                }
+                        </text>
+                    }
+                });
         });
     </script>
     }
