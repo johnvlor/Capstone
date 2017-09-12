@@ -47,9 +47,15 @@
                 <br />
             </div>
             <div style="padding-bottom: 20px;">
-                <br />
-                <h4>Sign up here</h4>
-                @Html.ActionLink("Register", "MemberRoute", new { id = Model.ID }, new { @class = "btn btn-primary" })
+                @if (Model.Register == true)
+                {
+                    if (DateTime.Now <= Model.Start)
+                    {
+                        <br />
+                        <h4>Sign up here</h4>
+                        @Html.ActionLink("Register", "MemberRoute", new { id = Model.ID }, new { @class = "btn btn-primary" })
+                    }
+                }
             </div>
         </div>
         <div class="col-md-1">
@@ -74,14 +80,6 @@
             <br />@Html.DisplayFor(model => model.ContactPhone)
         </div>
     </div>
-    @*<div class="row" style="padding-bottom: 20px; background-color:aliceblue">
-        <div class="col-md-4">
-            <div>
-                <h4>Sign up here!</h4>                   
-            </div>
-            @Html.ActionLink("Register", "MemberRoute", new { id = Model.ID }, new { @class = "btn btn-primary" })
-        </div>
-    </div>*@   
 </div>
 
 <br />

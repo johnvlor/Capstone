@@ -1,14 +1,7 @@
 ﻿@model IEnumerable<Capstone.Models.Attendance>
-@using Capstone.Extensions
-
 
 @{
     ViewBag.Title = "Index";
-    var userType = User.Identity.GetAccountTypeID();
-    if (userType == "3")
-    {
-        Layout = "~/Views/Shared/_LayoutVolunteer.cshtml";
-    }
 }
 
 <br />
@@ -41,7 +34,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @*@item.Date.ToString("dd/MM/yyyy")*@
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>

@@ -88,39 +88,6 @@
     </div>
 </div>
 
- @*Second Grid 
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-    <div class="w3-content">
-        <div class="w3-third w3-center">
-            <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
-        </div>
-
-        <div class="w3-twothird">
-            <h2>Announcements</h2>
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Posted On</th>
-                        <th>@Html.DisplayNameFor(model => model.Description)</th>
-                        <th>@Html.DisplayNameFor(model => model.Start)</th>
-                        <th>@Html.DisplayNameFor(model => model.End)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-            {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.Created)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Start)</td>
-                            <td>@Html.DisplayFor(modelItem => item.End)</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>*@
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">Love God, Love His Church, Love His World, All for His Glory</h1>
@@ -136,28 +103,28 @@
         <div class="col-lg-5 col-sm-6 w3-container w3-opacity" style="border-radius: 10px;">
             <div>
                 <h4>Address:</h4>
-                <span>2330 W Scott Street<br>Milwaukee, WI 53204</span>
+                <strong>New Life Hmong Alliance Church<br /><span>2330 W Scott Street<br>Milwaukee, WI 53204</span></strong>
             </div>
             <div>
                 <h4>Phone:</h4>
-                <span>1-800-BOO-YAHH</span>
+                <strong><span>1-800-123-4567</span></strong>
             </div>
             <div>
                 <h4>email:</h4>
-                <span>newlife@gmail.com</span>
+                <strong><span>newlife@gmail.com</span></strong>
             </div>
             <div>
                 <h4>Hours:</h4>
-                <span><strong>Sunday Service:</strong> 9am - 12pm</span>
+                <span><strong>Sunday Service: 9am - 12pm</strong></span>
             </div>
         </div>
-        <div class="col-lg-1 col-sm-2 wow fadeInLeft" style="border: thin solid black">
+        <div class="col-lg-1 col-sm-2 wow fadeInLeft">
             <br />
         </div>
-        <div class="col-lg-1 col-sm-2 wow fadeInLeft" style="border: thin solid black">
+        <div class="col-lg-1 col-sm-2 wow fadeInLeft">
             <br />
         </div>
-        <div class="col-lg-5 col-sm-6" style="border: thin solid black">
+        <div class="col-lg-5 col-sm-6">
                 <div>
                     <h3>Prayer Request</h3>
                 </div>
@@ -174,12 +141,6 @@
         </div>
         
 </section>
-<!-- Footer -->
-@*<footer class="w3-container w3-padding-64 w3-center w3-opacity">
-    <div class="w3-xlarge w3-padding-32">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    </div>
-</footer>*@
 
 <script>
 // Used to toggle the menu on small screens when clicking on the menu button

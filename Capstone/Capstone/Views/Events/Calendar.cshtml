@@ -21,7 +21,6 @@
             // page is now ready, initialize the calendar...
 
             $('#calendar').fullCalendar({
-                // put your options and callbacks here
                 theme: true,
                 header: {
                     left: 'prev,next today',
@@ -36,15 +35,7 @@
                 slotMinutes: 15,
                 events: '/events/getevents/',
                 eventClick: function (calEvent, jsEvent, view) {
-
-                    //ViewBag.ID = event.id;
-                    @*var url = '@Url.Action("Details", "Events"@*, new { id = ViewBag.ID})';
-                    window.location.href = url;*@
-
-                //eventClick: function (calEvent, jsEvent, view) {
-
-                    alert('You clicked on event id: ' + calEvent.id
-                        + "\nEvent Name: " + calEvent.title
+                    alert("Event Name: " + calEvent.title
                         + "\n\nDescription: " + calEvent.description),
                     $(this).css('border-color', 'red');
                 },

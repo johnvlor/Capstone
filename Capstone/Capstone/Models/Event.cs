@@ -56,5 +56,7 @@ namespace Capstone.Models
         [Display(Name = "Image")]
         public string ImagePath { get; set; }
 
+        [Display(Name = "Sign up Needed?")]
+        public bool Register { get; set; }
     }
 }

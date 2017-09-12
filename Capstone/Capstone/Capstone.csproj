@@ -336,6 +336,10 @@
     <Compile Include="Migrations\201709101245234_RemoveIenumerableAccountType.Designer.cs">
       <DependentUpon>201709101245234_RemoveIenumerableAccountType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709121542052_AddSignupOptionToEvents.cs" />
+    <Compile Include="Migrations\201709121542052_AddSignupOptionToEvents.Designer.cs">
+      <DependentUpon>201709121542052_AddSignupOptionToEvents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -353,6 +357,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-old.css" />
+    <Content Include="Content\bootstrap-old.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fullcalendar.css" />
@@ -592,7 +598,6 @@
     <Content Include="Views\PayPal\Success.cshtml" />
     <Content Include="Views\PayPal\Index.cshtml" />
     <Content Include="Views\Attendances\IndexReport.cshtml" />
-    <Content Include="Views\Shared\_LayoutVolunteer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -708,6 +713,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709101245234_RemoveIenumerableAccountType.resx">
       <DependentUpon>201709101245234_RemoveIenumerableAccountType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709121542052_AddSignupOptionToEvents.resx">
+      <DependentUpon>201709121542052_AddSignupOptionToEvents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

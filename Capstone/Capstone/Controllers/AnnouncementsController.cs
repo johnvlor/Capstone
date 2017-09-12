@@ -62,6 +62,7 @@ namespace Capstone.Controllers
                 //{
                 //    CheckAuthorization(announcement);
                 //}
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -133,6 +134,6 @@ namespace Capstone.Controllers
             }
             base.Dispose(disposing);
         }
-       
+        
     }
 }

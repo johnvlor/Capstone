@@ -4,12 +4,12 @@
     ViewBag.Title = "PrayerRequest";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Send your Prayer Request</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <h4>Send your Prayer Request.</h4>
+    @*<h4>Send your Prayer Request.</h4>*@
     <hr />
     <div class="form-group">
         @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })

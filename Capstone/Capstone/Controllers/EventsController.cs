@@ -86,14 +86,6 @@ namespace Capstone.Controllers
                 return HttpNotFound();
             }
 
-            if (Request.IsAuthenticated)
-            {
-                var loggedUser = User.Identity.GetUserId();
-                var users = db.Users.Single(u => u.Id == loggedUser);
-
-                ViewBag.UserAccountType = users.AccountTypeID;
-            }
-
             return View(@event);
         }
 
@@ -134,7 +126,7 @@ namespace Capstone.Controllers
                 }
 
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Calendar");
             }
 
             return View(@event);
@@ -170,11 +162,6 @@ namespace Capstone.Controllers
                                                           + file.FileName);
                     @event.ImagePath = file.FileName;
                 }
-
-                //if (@event.EventsPage == true)
-                //{
-                //    @event.EventsPage = true;
-                //}
 
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();

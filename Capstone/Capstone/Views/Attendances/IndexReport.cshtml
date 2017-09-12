@@ -1,13 +1,7 @@
 ﻿@model IEnumerable<Capstone.Models.Attendance>
-@using Capstone.Extensions
 
 @{
     ViewBag.Title = "IndexReport";
-    var userType = User.Identity.GetAccountTypeID();
-    if (userType == "3")
-    {
-        Layout = "~/Views/Shared/_LayoutVolunteer.cshtml";
-    }
 }
 
 <head>

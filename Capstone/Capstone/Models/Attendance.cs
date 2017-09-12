@@ -13,6 +13,7 @@ namespace Capstone.Models
 
         public int Service { get; set; }
 
+        [Display (Name ="Sunday School")]
         public int SundaySchool { get; set; }
 
         public int Guest { get; set; }
