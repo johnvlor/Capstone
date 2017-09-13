@@ -50,18 +50,13 @@ namespace Capstone.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Announcement announcement, bool Facebook)
+        public ActionResult Create(Announcement announcement)
         {
             if (ModelState.IsValid)
             {
                 announcement.Created = DateTime.Now;
                 db.Announcement.Add(announcement);
                 db.SaveChanges();
-
-                //if (Facebook == true)
-                //{
-                //    CheckAuthorization(announcement);
-                //}
 
                 return RedirectToAction("Index", "Home");
             }

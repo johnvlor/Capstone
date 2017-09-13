@@ -62,7 +62,7 @@ namespace Capstone.Controllers
                     var credential = new NetworkCredential
                     {
                         UserName = "teamintegrationproject@gmail.com",  // replace with valid value
-                        Password = ""  // replace with valid value
+                        Password = "vanadium1"  // replace with valid value
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp.gmail.com";

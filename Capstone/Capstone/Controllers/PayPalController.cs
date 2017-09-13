@@ -66,8 +66,6 @@ namespace Capstone.Controllers
                 PayPalTransactionID = ViewBag.result.TransactionId
             };
 
-            //newPayPal.Date = String.Format("HH:mm:ss MMM dd, yyyy {0}", newPayPal.Date.Substring(newPayPal.Date.Length - 3));
-
             db.PayPalModel.Add(newPayPal);
             db.SaveChanges();
 
